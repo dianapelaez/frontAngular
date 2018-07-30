@@ -1,29 +1,31 @@
 <div class="clear"></div>
 <h1>Crear nuevo usuario</h1>
-<form #userForm="ngForm">
 <form class="form-horizontal main-form">
+  <div *ngIf="!isValid" class="alert alert-danger">
+      <strong>Danger!</strong>{{ message }}.
+  </div>
   <div class="form-group">
       <label class="control-label col-sm-2" for="firstName"><span class="required">*</span>Primer nombre:</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" name="firstName" id="firstName" [(ngModel)]="user.firstName" placeholder="Ingrese su primer nombre">  
+        <input type="text" class="form-control" name="firstName" id="firstName" [(ngModel)] = "user.firstName" placeholder="Ingrese su primer nombre">  
       </div>
   </div>
   <div class="form-group">
-    <label class="control-label col-sm-2" for="secondName"><span class="required">*</span>Segundo nombre:</label>
+    <label class="control-label col-sm-2" for="secondName">Segundo nombre:</label>
     <div class="col-sm-10"> 
       <input type="text" class="form-control" name="secondName" id="secondName" [(ngModel)]="user.secondName" placeholder="Ingrese su segundo nombre">
     </div>
   </div>
   <div class="form-group">
-    <label class="control-label col-sm-2" for="firstSurName"><span class="required">*</span>Primer apellido:</label>
+    <label class="control-label col-sm-2" for="firstSurname"><span class="required">*</span>Primer apellido:</label>
     <div class="col-sm-10"> 
-      <input type="text" class="form-control" name="firstSurName" id="firstSurName" [(ngModel)]="user.firstSurName" placeholder="Ingrese su primer apellido">
+      <input type="text" class="form-control" name="firstSurname" id="firstSurName" [(ngModel)]="user.firstSurname" placeholder="Ingrese su primer apellido">
     </div>
   </div>
   <div class="form-group">
-      <label class="control-label col-sm-2" for="secondSurName">Segundo apellido:</label>
+      <label class="control-label col-sm-2" for="secondSurname">Segundo apellido:</label>
       <div class="col-sm-10"> 
-        <input type="text" class="form-control" name="secondSurName" id="secondSurName" [(ngModel)]="user.secondSurName" placeholder="Ingrese su segundo apellido">
+        <input type="text" class="form-control" name="secondSurname" id="secondSurname" [(ngModel)]="user.secondSurname" placeholder="Ingrese su segundo apellido">
       </div>
   </div>
   <div class="form-group">
@@ -33,14 +35,14 @@
       </div>
   </div>
   <div class="form-group">
-      <label class="control-label col-sm-2" for="address"><span class="required">*</span>Dirección:</label>
+      <label class="control-label col-sm-2" for="address">Dirección:</label>
       <div class="col-sm-10"> 
-        <input type="text" class="form-control" id="address" [(ngModel)]="user.address" placeholder="Ingrese su dirección">
+        <input type="text" class="form-control" name="address" id="address" [(ngModel)]="user.address" placeholder="Ingrese su dirección">
       </div>
   </div>
   <div class="form-group"> 
     <div class="col-sm-offset-2 col-sm-10">
-      <button type="submit" class="btn btn-default">Submit</button>
+      <button type="submit" (click)="saveOrUpdate()" class="btn btn-default btn_save">Guardar</button>
     </div>
   </div>
 </form>
