@@ -17,7 +17,13 @@ export class CreateUserComponent implements OnInit {
    private message = '';
 
   constructor(private createUserService: CreateUserService, private router: Router) {
-    this.user = new UserModel();
+
+      if (sessionStorage.getItem("user")){
+         this.user = JSON.parse(sessionStorage.getItem("user"));
+      } else {
+        this.user = new UserModel();
+      }
+    sessionStorage.clear();
   }
 
   ngOnInit() {
